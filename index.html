@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta charset="utf-8">
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <title>텍스트2엄랭</title>
+</head>
+
+<body>
+	<h1>텍스트2엄랭</h1>
+	<p>텍스트를 엄랭 코드로 변환해주는 간단한 웹사이트입니다.</p>
+    <textarea style="margin: 0px; width: 600px; height: 150px;" placeholder="변환할 텍스트를 입력해 주세요."></textarea>
+	<br>
+	<br>
+    <button type="button" onclick="TextTo엄랭();">변환</button>
+	
+	<script>
+		function TextTo엄랭() {
+			textarea = $( 'textarea' )
+			str = $( 'textarea' ).val();
+			textarea.val('');
+			
+			textarea.val(textarea.val() + "어떻게");
+			for (var i = 0; i < str.length; i++) {
+				str2 = str.charAt(i)
+				if (str2.charCodeAt(0) === 10) {
+					textarea.val(textarea.val() + "\n식ㅋ");
+				} else {
+					textarea.val(textarea.val() + "\n식");
+				
+					prime = primeFactors(str2.charCodeAt(0));
+
+					for (var ii = 0; ii < prime.length; ii++) {
+						for (var iii = 0; iii < prime[ii]; iii++) {
+							textarea.val(textarea.val() + '.');
+						}
+						if (ii !==  prime.length -1){
+							textarea.val(textarea.val() + ' ');
+						}
+					}
+
+					textarea.val(textarea.val() + "ㅋ");
+				}
+			}
+			textarea.val(textarea.val() + "\n이 사람이름이냐ㅋㅋ");
+		}
+		
+		function primeFactors(n){
+		  var factors = [], 
+			  divisor = 2;
+		  
+		  while(n>=2){
+			if(n % divisor == 0){
+			   factors.push(divisor); 
+			   n= n/ divisor;
+			}
+			else{
+			  divisor++;
+			}     
+		  }
+		  return factors;
+		}
+	</script>
+</body>
+</html>
